@@ -1,17 +1,18 @@
 import { useState } from "react";
-import "./App.css";
 import Input from "./components/Input";
 import GigList from "./components/GigList";
 
 function App() {
   const [gigInfo, setGigInfo] = useState([]);
+  const [onLoading, setOnLoading] = useState(false);
 
   const searchGig = async (props) => {
+    setOnLoading(true);
     const response = await fetch(
       `https://api.idiots.band/api/search?keyword=${props}`
     );
     const result = await response.json();
-
+    setOnLoading(false);
     setGigInfo(result);
   };
 
@@ -25,6 +26,8 @@ function App() {
 
   if (gigInfo.length > 0) {
     content = <GigList gigInfo={gigInfo} />;
+  } else if (onLoading) {
+    content = <h2>Loading</h2>;
   }
 
   return (
