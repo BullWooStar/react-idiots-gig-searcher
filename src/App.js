@@ -3,17 +3,18 @@ import Input from "./components/Input";
 import GigList from "./components/GigList";
 
 function App() {
-  const [gigInfo, setGigInfo] = useState([]);
+  const [gigInfo, setGigInfo] = useState([]); // []말고 null
   const [onLoading, setOnLoading] = useState(false);
 
   const searchGig = async (props) => {
     setOnLoading(true);
     const response = await fetch(
-      `https://api.idiots.band/api/search?keyword=${props}`
+      //try catch
+      `https://api.idiots.band/api/search?keyword=${props}` // fetch 쓸때는 response.ok
     );
     const result = await response.json();
-    setOnLoading(false);
     setGigInfo(result);
+    setOnLoading(false);
   };
 
   let content = (

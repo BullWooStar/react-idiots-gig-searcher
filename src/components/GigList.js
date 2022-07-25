@@ -6,7 +6,7 @@ const GigList = (props) => {
     <ul className="gig-list">
       {props.gigInfo.map((gig) => (
         <li className="gig-info" key={gig.title}>
-          <h2>{gig.title} </h2> <p>{gig.startDate.slice(0, 10)}</p>
+          <h2>{gig.title} </h2> <p>{gig.startDate}</p>
           <img
             src={gig.poster}
             alt="gigPoster"
