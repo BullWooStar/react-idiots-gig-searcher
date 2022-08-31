@@ -1,12 +1,14 @@
 import { useState } from "react";
 import Input from "./components/Input";
 import GigList from "./components/GigList";
+import React from "react";
+import GigInfo from "./model/GigInfo";
 
 function App() {
-  const [gigInfo, setGigInfo] = useState(null);
-  const [onLoading, setOnLoading] = useState(false);
+  const [gigInfo, setGigInfo] = useState<GigInfo[]>([]);
+  const [onLoading, setOnLoading] = useState<boolean>(false);
 
-  const searchGig = async (keyword) => {
+  const searchGig = async (keyword: string) => {
     setOnLoading(true);
     try {
       const response = await fetch(

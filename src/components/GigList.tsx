@@ -1,7 +1,8 @@
 import React from "react";
 import "./GigList.css";
+import GigInfo from "../model/GigInfo";
 
-const GigList = ({ gigInfo }) => {
+const GigList: React.FC<{ gigInfo: GigInfo[] }> = ({ gigInfo }) => {
   return gigInfo.length === 0 ? (
     <p>검색결과가 없습니다</p>
   ) : (
