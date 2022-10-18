@@ -1,5 +1,3 @@
-# 이디어츠 공연 검색기
+## REACT IDIOTS GIG SEARCHER
 
-API는 로토의것을 사용하였습니다
-
-ts변환 branch 생성
+ROTO의 API를 활용한 밴드 이디어츠의 공연 검색기 입니다
